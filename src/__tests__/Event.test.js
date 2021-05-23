@@ -10,8 +10,8 @@ describe('<Event /> component', () => {
     EventWrapper = shallow(<Event event={event} />);
   });
 
+  // Feature 2: Show / Hide an event's details
   // Scenario 1: An event element is collapsed by default.
-
   test('shallow event instance should render with prop', () => {
     expect(EventWrapper.instance().props.event).toEqual(event);
   });
@@ -37,7 +37,6 @@ describe('<Event /> component', () => {
   });
 
   // Scenario 2: User can expand an event to see its details.
-
   test('shallow event should render details button', () => {
     expect(EventWrapper.find('.btn-toggle-event')).toHaveLength(1);
   });
@@ -66,7 +65,6 @@ describe('<Event /> component', () => {
   });
 
   // Scenario 3: User can collapse an event to hide its details.
-
   test('shallow event should collapse an event details after click details button', () => {
     EventWrapper.find('.btn-toggle-event').simulate('click');
     expect(EventWrapper.state('isCollapsed')).toBeTruthy();

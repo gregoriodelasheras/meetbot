@@ -11,6 +11,8 @@ describe('<CitySearch /> component', () => {
     CitySearchWrapper = shallow(<CitySearch locations={locations} />);
   });
 
+  // Feature 1: Filter events by city
+  // Scenario 1: When user hasn't searched for a city, show upcoming events from all cities.
   test('render text input', () => {
     expect(CitySearchWrapper.find('.city')).toHaveLength(1);
   });
@@ -19,6 +21,7 @@ describe('<CitySearch /> component', () => {
     expect(CitySearchWrapper.find('.suggestions')).toHaveLength(1);
   });
 
+  // Scenario 2: User should see a list of suggestions when they search for a city.
   test('renders text input correctly', () => {
     const query = CitySearchWrapper.state('query');
     expect(CitySearchWrapper.find('.city').prop('value')).toBe(query);
@@ -33,6 +36,7 @@ describe('<CitySearch /> component', () => {
     expect(CitySearchWrapper.state('query')).toBe('Berlin');
   });
 
+  // Scenario 3: User can select a city from the suggested list.
   test('render list of suggestions correctly', () => {
     const locations = extractLocations(mockData);
     CitySearchWrapper.setState({ suggestions: locations });
