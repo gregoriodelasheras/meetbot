@@ -155,12 +155,14 @@ The development of this application was organized through a Kanban board. You ca
 - [JavaScript](https://www.javascript.com/)
 - [Node.js](https://nodejs.org/)
 - [React](https://reactjs.org/)
+- [Jest](https://jestjs.io/)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Dependencies
 
 - eslint
 - react
+- enzyme (shallow + full)
 
 ## License
 
