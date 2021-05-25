@@ -40,7 +40,7 @@ class Event extends Component {
     const { event } = this.props;
 
     return (
-      <Event>
+      <div className='Event'>
         <h2 className='event-summary'>{event.summary}</h2>
         <p className='event-start-date'>
           {event.start.dateTime}, {event.start.timeZone}
@@ -56,7 +56,7 @@ class Event extends Component {
           Details
         </button>
         {this.showCollapsedEvent()}
-      </Event>
+      </div>
     );
   }
 }
