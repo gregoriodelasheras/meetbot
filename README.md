@@ -22,6 +22,7 @@
 </details>
 
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 ### Objective:
@@ -64,6 +65,7 @@ Scenario 3: User can select a city from the suggested list.
     And the list of suggested cities is showing
     When user selects a city (e.g., “Berlin, Germany”) from the list
     Then their city should be changed to that city (i.e., “Berlin, Germany”)
+    And the list of suggestions should disappear
     And the user should receive a list of upcoming events in that city
 ```
 
@@ -169,6 +171,7 @@ The development of this application was organized through a Kanban board. You ca
 Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
+
 ## Contact
 
 Francisco Gregorio de las Heras: [LinkedIn](https://www.linkedin.com/in/francisco-gregorio-de-las-heras/)
@@ -176,7 +179,8 @@ Francisco Gregorio de las Heras: [LinkedIn](https://www.linkedin.com/in/francisc
 Project Link: [https://gregoriodelasheras.github.io/meetbot/](https://gregoriodelasheras.github.io/meetbot/)
 
 <!-- ACKNOWLEDGEMENTS -->
+
 ## Acknowledgements
 
-* [Itua Akhator](https://github.com/iakhator)
-* [Vinh-Tuong Mai](https://github.com/mvtuong)
+- [Itua Akhator](https://github.com/iakhator)
+- [Vinh-Tuong Mai](https://github.com/mvtuong)
