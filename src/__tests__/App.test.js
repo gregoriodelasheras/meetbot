@@ -76,4 +76,36 @@ describe('<App /> integration', () => {
     expect(AppWrapper.state('events')).toEqual(allEvents);
     AppWrapper.unmount();
   });
+
+  // Feature 3: Specify number of events
+  // Scenario 1: When user hasn’t specified a number, 32 is the default number.
+  test('mount App passes "numberOfEvents" state as a prop to NumberOfEvents component', () => {
+    const AppWrapper = mount(<App />);
+    const AppNumberOfEventsState = AppWrapper.state('numberOfEvents');
+    expect(AppNumberOfEventsState).not.toEqual(undefined);
+    expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toEqual(
+      AppNumberOfEventsState,
+    );
+    AppWrapper.unmount();
+  });
+
+  test('mount App should render a number of 32 events by default', () => {
+    const AppWrapper = mount(<App />);
+    const numberOfEventsItems = AppWrapper.find(NumberOfEvents).find(
+      '.input-number-events',
+    );
+    expect(numberOfEventsItems.props().value).toEqual(32);
+    AppWrapper.unmount();
+  });
+
+  // Scenario 2: User can change the number of events they want to see.
+  test('mount App should change number of events when NumberOfEvents component changes (from 32 to 7)', async () => {
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    const locations = extractLocations(mockData);
+    NumberOfEventsWrapper.setState({ events: locations, eventCount: 7 });
+    NumberOfEventsWrapper.find('.input-number-events').simulate('change');
+    expect(NumberOfEventsWrapper.state('eventCount')).toEqual(7);
+    AppWrapper.unmount();
+  });
 });
