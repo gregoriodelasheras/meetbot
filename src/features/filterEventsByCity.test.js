@@ -1,10 +1,10 @@
-import { loadFeature, defineFeature } from 'jest-cucumber';
 import React from 'react';
-import { mount, shallow } from 'enzyme';
 import App from '../App';
 import CitySearch from '../CitySearch';
 import { mockData } from '../mock-data';
 import { extractLocations } from '../api';
+import { mount, shallow } from 'enzyme';
+import { loadFeature, defineFeature } from 'jest-cucumber';
 
 const feature = loadFeature('./src/features/filterEventsByCity.feature');
 const locations = extractLocations(mockData);
@@ -93,6 +93,7 @@ defineFeature(feature, (test) => {
       'the user should receive a list of upcoming events in that city.',
       () => {
         expect(AppWrapper.find('.Event')).toHaveLength(mockData.length);
+        AppWrapper.unmount();
       },
     );
   });
