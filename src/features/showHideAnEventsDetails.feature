@@ -1,5 +1,5 @@
 // Feature 2
-Feature: Show / Hide an hasn’t details
+Feature: Show / Hide an event’s details
 
     Scenario: An event element is collapsed by default.
 
@@ -9,7 +9,7 @@ Feature: Show / Hide an hasn’t details
 
     Scenario: User can expand an event to see its details.
 
-        Given user hasn't opened the event element
+        Given user hasn’t opened the event element
         When user opens the event element
         Then the user should be able to see the details of the opening event.
 
