@@ -158,6 +158,8 @@ The development of this application was organized through a Kanban board. You ca
 - [Node.js](https://nodejs.org/)
 - [React](https://reactjs.org/)
 - [Jest](https://jestjs.io/)
+- [Jest Cucumber](https://github.com/bencompton/jest-cucumber)
+- [Puppeteer](https://github.com/puppeteer/puppeteer)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Dependencies
