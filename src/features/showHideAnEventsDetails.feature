@@ -1,4 +1,3 @@
-// Feature 2
 Feature: Show / Hide an event’s details
 
     Scenario: An event element is collapsed by default.

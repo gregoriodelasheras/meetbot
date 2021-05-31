@@ -1,4 +1,3 @@
-// Feature 3
 Feature: Specify number of events
 
     Scenario: When user hasn’t specified a number, 32 is the default number.
