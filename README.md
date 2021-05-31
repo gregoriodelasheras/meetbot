@@ -1,10 +1,10 @@
 <!-- PROJECT LOGO -->
 <p align="center">
   <a href="https://gregoriodelasheras.github.io/meetbot/">
-    <img src="logo.svg" alt="Logo" width="600">
+    <img src="https://user-images.githubusercontent.com/77192223/120223527-02784a80-c242-11eb-8c56-b6d50c3f5405.png" alt="Logo" width="600">
   </a>
   <p align="center">
-    Meetbot
+    Just another Serverless Progressive Web App (PWA) with React that uses the Google Calendar API to fetch upcoming events.
   </p>
 </p>
 
@@ -164,9 +164,17 @@ The development of this application was organized through a Kanban board. You ca
 
 ## Dependencies
 
-- eslint
 - react
-- enzyme (shallow + full)
+- axios
+- nprogress
+
+## Dev Dependencies
+
+- enzyme
+- enzyme-adapter-react-16
+- jest-cucumber
+- puppeteer
+- eslint
 
 ## License
 
