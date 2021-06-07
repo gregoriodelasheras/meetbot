@@ -1,47 +1,15 @@
-/* .App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Roboto:500');
+
+body {
+  background-color: #f5f5f5;
+  color: #000000;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
- */
-
-@import url(https://fonts.googleapis.com/css?family=Roboto:500);
 .App {
   text-align: center;
   padding: 2% 5%;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .App * {
@@ -89,15 +57,10 @@ input[type='number'] {
   position: relative;
 }
 
-.suggestions {
-  width: 250px;
-  position: absolute;
-  z-index: 2;
-  align-self: center;
-  margin: 0;
-  top: 43px;
-  font-size: 14px;
-  box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
+.suggestions,
+.Alert {
+  max-width: 300px;
+  margin: 0 auto;
 }
 
 .suggestions > li {
@@ -116,16 +79,17 @@ input[type='number'] {
   background-color: #bcdcdb;
 }
 
-.event {
+.Event {
   padding: 10px 10px 35px;
   margin-bottom: 10px;
   text-align: left;
   border: 1px solid #ccc;
   border-radius: 4px;
   position: relative;
+  background-color: #ffffff;
 }
 
-.details-btn {
+.btn-toggle-event {
   position: absolute;
   right: 5px;
   bottom: 5px;
@@ -154,8 +118,8 @@ input[type='number'] {
   overflow-x: hidden;
 }
 
-.numberOfEvents {
-  width: 200px;
+.NumberOfEvents {
+  max-width: 300px;
   margin: 20px auto;
   text-align: center;
 }
@@ -166,11 +130,6 @@ input[type='number'] {
   grid-gap: 20px;
   padding: 20px;
   font-family: sans-serif;
-}
-
-.Alert {
-  position: fixed;
-  top: 20px;
 }
 
 .data-vis-wrapper {
@@ -248,4 +207,9 @@ input[type='number'] {
     min-width: auto;
     margin: 0 auto;
   }
+}
+
+.logo-web {
+  max-width: 300px;
+  width: 100%;
 }
