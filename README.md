@@ -151,7 +151,7 @@ Then the user can see a chart with the number of events that are to take place i
 
 ### Kanban Board:
 
-The development of this application was organized through a Kanban board. You can see the board by [following this link](#).
+The development of this application was organized through a Kanban board. You can see the board by [following this link](https://trello.com/b/IgS6acUm/achievement-4-project-meetbot).
 
 ## Built With
 
