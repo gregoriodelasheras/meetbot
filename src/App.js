@@ -55,7 +55,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <img src={logo} alt='Logo' className='img-fluid logo-web' />
+        <img src={logo} alt='Logo' className='logo-web' />
         <h1>Meetbot</h1>
         <CitySearch
           locations={this.state.locations}
