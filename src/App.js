@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './assets/images/logo.svg';
 import './App.css';
 import './nprogress.css';
 import EventList from './EventList';
@@ -55,7 +55,13 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <img src={logo} alt='Logo' className='logo-web' />
+        <img
+          src={logo}
+          alt='Logo'
+          className='logo-web'
+          width='300'
+          height='100'
+        />
         <h1>Meetbot</h1>
         <CitySearch
           locations={this.state.locations}
