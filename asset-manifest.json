@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/meetbot/static/css/main.e48b2dda.chunk.css",
-    "main.js": "/meetbot/static/js/main.91b1f7bb.chunk.js",
-    "main.js.map": "/meetbot/static/js/main.91b1f7bb.chunk.js.map",
+    "main.js": "/meetbot/static/js/main.bee2dfbb.chunk.js",
+    "main.js.map": "/meetbot/static/js/main.bee2dfbb.chunk.js.map",
     "runtime-main.js": "/meetbot/static/js/runtime-main.7fba29a4.js",
     "runtime-main.js.map": "/meetbot/static/js/runtime-main.7fba29a4.js.map",
     "static/js/2.de75727d.chunk.js": "/meetbot/static/js/2.de75727d.chunk.js",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.7fba29a4.js",
     "static/js/2.de75727d.chunk.js",
     "static/css/main.e48b2dda.chunk.css",
-    "static/js/main.91b1f7bb.chunk.js"
+    "static/js/main.bee2dfbb.chunk.js"
   ]
 }
