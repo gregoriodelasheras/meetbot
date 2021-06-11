@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import logo from './assets/images/logo.svg';
 import './App.css';
 import './nprogress.css';
+import {
+  ScatterChart,
+  Scatter,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from 'recharts';
+
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
@@ -15,7 +25,7 @@ class App extends Component {
     this.state = {
       events: [],
       locations: [],
-      numberOfEvents: 32,
+      numberOfEvents: 5,
     };
   }
 
@@ -99,6 +109,17 @@ class App extends Component {
           updateEvents={this.updateEvents}
         />
         <WarningAlert text={this.state.warningText} />
+
+        <ResponsiveContainer height={400}>
+          <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+            <CartesianGrid strokeDasharray='3 3' />
+            <XAxis type='category' dataKey='city' name='city' />
+            <YAxis type='number' dataKey='number' name='number of events' />
+            <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+            <Scatter data={this.getData()} fill='#8884d8' />
+          </ScatterChart>
+        </ResponsiveContainer>
+
         <EventList events={this.state.events} />
       </div>
     );
