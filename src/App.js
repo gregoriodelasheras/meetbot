@@ -47,6 +47,20 @@ class App extends Component {
     this.mounted = false;
   }
 
+  // Get the total number of events happening in each city
+  getData = () => {
+    const { locations, events } = this.state;
+    // Filter the events by each location to get the length of the resulting array
+    const data = locations.map((location) => {
+      const number = events.filter(
+        (event) => event.location === location,
+      ).length;
+      const city = location.split(', ').shift();
+      return { city, number };
+    });
+    return data;
+  };
+
   updateEvents = (location, eventCount) => {
     this.mounted = true;
     getEvents().then((events) => {
