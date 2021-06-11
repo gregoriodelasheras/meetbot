@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './assets/images/logo.svg';
 import './App.css';
 import './nprogress.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents, extractLocations } from './api';
+import { WarningAlert } from './Alert';
 
 class App extends Component {
   constructor() {
@@ -20,6 +21,18 @@ class App extends Component {
 
   componentDidMount() {
     this.mounted = true;
+
+    if (!navigator.onLine) {
+      this.setState({
+        warningText:
+          'You are currently using the app offline. Events may be out of date.',
+      });
+    } else {
+      this.setState({
+        warningText: '',
+      });
+    }
+
     getEvents().then((events) => {
       if (this.mounted) {
         this.setState({
@@ -55,7 +68,13 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <img src={logo} alt='Logo' className='logo-web' />
+        <img
+          src={logo}
+          alt='Logo'
+          className='logo-web'
+          width='300'
+          height='100'
+        />
         <h1>Meetbot</h1>
         <CitySearch
           locations={this.state.locations}
@@ -65,6 +84,7 @@ class App extends Component {
           numberOfEvents={this.state.numberOfEvents}
           updateEvents={this.updateEvents}
         />
+        <WarningAlert text={this.state.warningText} />
         <EventList events={this.state.events} />
       </div>
     );
