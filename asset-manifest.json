@@ -1,14 +1,12 @@
 {
   "files": {
     "main.css": "/meetbot/static/css/main.1d701730.chunk.css",
-    "main.js": "/meetbot/static/js/main.2c1af641.chunk.js",
-    "main.js.map": "/meetbot/static/js/main.2c1af641.chunk.js.map",
-    "runtime-main.js": "/meetbot/static/js/runtime-main.f19bd823.js",
-    "runtime-main.js.map": "/meetbot/static/js/runtime-main.f19bd823.js.map",
+    "main.js": "/meetbot/static/js/main.eb357134.chunk.js",
+    "main.js.map": "/meetbot/static/js/main.eb357134.chunk.js.map",
+    "runtime-main.js": "/meetbot/static/js/runtime-main.4f222955.js",
+    "runtime-main.js.map": "/meetbot/static/js/runtime-main.4f222955.js.map",
     "static/js/2.96e2a0d6.chunk.js": "/meetbot/static/js/2.96e2a0d6.chunk.js",
     "static/js/2.96e2a0d6.chunk.js.map": "/meetbot/static/js/2.96e2a0d6.chunk.js.map",
-    "static/js/3.ec9bb538.chunk.js": "/meetbot/static/js/3.ec9bb538.chunk.js",
-    "static/js/3.ec9bb538.chunk.js.map": "/meetbot/static/js/3.ec9bb538.chunk.js.map",
     "index.html": "/meetbot/index.html",
     "service-worker.js": "/meetbot/service-worker.js",
     "service-worker.js.map": "/meetbot/service-worker.js.map",
@@ -17,9 +15,9 @@
     "static/media/logo.462aee1a.svg": "/meetbot/static/media/logo.462aee1a.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.f19bd823.js",
+    "static/js/runtime-main.4f222955.js",
     "static/js/2.96e2a0d6.chunk.js",
     "static/css/main.1d701730.chunk.css",
-    "static/js/main.2c1af641.chunk.js"
+    "static/js/main.eb357134.chunk.js"
   ]
 }
