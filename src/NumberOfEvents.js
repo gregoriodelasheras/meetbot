@@ -10,17 +10,17 @@ class NumberOfEvents extends Component {
     };
   }
 
+  // Validate input number and update the number of events to display.
   handleInputChanged = (event) => {
     const value = event.target.value;
+    this.setState({ numberOfEvents: value });
 
     if (value < 1 || value > 32) {
       this.setState({
-        numberOfEvents: value,
         errorText: 'Please select a number from 1 to 32 events',
       });
     } else {
       this.setState({
-        numberOfEvents: value,
         errorText: '',
       });
       this.props.updateEvents('', value);
@@ -28,18 +28,20 @@ class NumberOfEvents extends Component {
   };
 
   render() {
+    const { numberOfEvents, errorText } = this.state;
+
     return (
       <div className='NumberOfEvents'>
-        <h2>Please select a number of events:</h2>
+        <h3>Please select a number of events:</h3>
         <input
           type='number'
           className='input-number-events'
           min='1'
           max='32'
-          value={this.state.numberOfEvents}
+          value={numberOfEvents}
           onChange={this.handleInputChanged}
         />
-        <ErrorAlert text={this.state.errorText} />
+        <ErrorAlert text={errorText} />
       </div>
     );
   }
