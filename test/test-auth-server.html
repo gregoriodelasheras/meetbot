@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <title>Test Auth Server</title>
   </head>
 
@@ -17,6 +16,11 @@
         margin-top: 25px;
       }
     </style>
+
+    <!-- 
+      Simple page for testing user authentication that includes an input (for entering an authorization code),
+      a button to click, and a paragraph to display the results.
+    -->
 
     <main id="container">
       <h1>OAuth2 Test</h1>
@@ -41,6 +45,7 @@
       <button id="getEvents">Get Events</button>
       <p id="events"></p>
     </main>
+
     <script type="text/javascript">
       // Get Auth URL
       const getURLElement = document.getElementById('getURL');
@@ -62,7 +67,7 @@
           });
       };
 
-      // Get Access Token
+      // Get access token.
       const codeValue = document.getElementById('code');
       const getAccessToken = document.getElementById('getToken');
       const accessTokenElement = document.getElementById('accessToken');
@@ -85,7 +90,7 @@
           });
       };
 
-      // Get Events
+      // Get Events.
       const getEvents = document.getElementById('getEvents');
       const events = document.getElementById('events');
       const getCalendarEvents =

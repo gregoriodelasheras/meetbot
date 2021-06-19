@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
 
-// Feature 1: Filter events by city
+// Feature 1: Filter events by city.
 describe('filter events by city', () => {
   let browser, page;
 
@@ -16,13 +16,13 @@ describe('filter events by city', () => {
     browser.close();
   });
 
-  // Scenario 1
+  // Scenario 1.
   test('When user hasn’t searched for a city, show upcoming events from all cities', async () => {
     const upcomingEvents = await page.$('.Event');
     expect(upcomingEvents).toBeDefined();
   });
 
-  // Scenario 2
+  // Scenario 2.
   test('User should see a list of suggestions when they search for a city', async () => {
     const cityHandle = await page.$('.city');
     await cityHandle.type('ber');
@@ -32,13 +32,13 @@ describe('filter events by city', () => {
     expect(citySuggestions).toHaveLength(2);
   });
 
-  // Scenario 3
+  // Scenario 3.
   test('User can select a city from the suggested list', async () => {
-    // To do
+    // To do!
   });
 });
 
-// Feature 2: Show / Hide an event's details
+// Feature 2: Show / Hide an event's details.
 describe('show/hide an event details', () => {
   let browser, page;
 
@@ -54,18 +54,18 @@ describe('show/hide an event details', () => {
     browser.close();
   });
 
-  // Scenario 1
+  // Scenario 1.
   test('An event element is collapsed by default', async () => {
     const eventDetails = await page.$('.Event .event__Details');
     expect(eventDetails).toBeNull();
   });
-  // Scenario 2
+  // Scenario 2.
   test('User can expand an event to see its details', async () => {
     await page.click('.Event .btn-toggle-event');
     const eventDetails = await page.$('.Event .event__Details');
     expect(eventDetails).toBeDefined();
   });
-  // Scenario 3
+  // Scenario 3.
   test('User can collapse an event to hide its details', async () => {
     await page.click('.Event .btn-toggle-event');
     const eventDetails = await page.$('.Event .event__Details');

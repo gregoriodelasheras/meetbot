@@ -27,7 +27,6 @@ class InfoAlert extends Alert {
     this.color = 'blue';
   }
 
-  // Bonus: Overriding the getStyle method
   getStyle = () => {
     return {
       color: this.color,
@@ -43,7 +42,6 @@ class WarningAlert extends Alert {
     this.color = 'orange';
   }
 
-  // Bonus: Overriding the getStyle method
   getStyle = () => {
     return {
       color: this.color,
@@ -59,7 +57,6 @@ class ErrorAlert extends Alert {
     this.color = 'red';
   }
 
-  // Bonus: Overriding the getStyle method
   getStyle = () => {
     return {
       color: this.color,

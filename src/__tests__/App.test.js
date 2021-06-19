@@ -9,7 +9,7 @@ import NumberOfEvents from '../NumberOfEvents';
 import { mockData } from '../mock-data';
 import { extractLocations, getEvents } from '../api';
 
-// Unit Tests
+// Unit Tests.
 describe('<App /> component', () => {
   let AppWrapper;
   beforeAll(() => {
@@ -29,9 +29,9 @@ describe('<App /> component', () => {
   });
 });
 
-// Integration Tests
+// Integration Tests.
 describe('<App /> integration', () => {
-  // Feature 1: Filter events by city
+  // Feature 1: Filter events by city.
   // Scenario 3: User can select a city from the suggested list.
   test('mount App passes "events" state as a prop to EventList component', () => {
     const AppWrapper = mount(<App />);
@@ -77,7 +77,7 @@ describe('<App /> integration', () => {
     AppWrapper.unmount();
   });
 
-  // Feature 3: Specify number of events
+  // Feature 3: Specify number of events.
   // Scenario 1: When user hasn’t specified a number, 32 is the default number.
   test('mount App passes "numberOfEvents" state as a prop to NumberOfEvents component', () => {
     const AppWrapper = mount(<App />);

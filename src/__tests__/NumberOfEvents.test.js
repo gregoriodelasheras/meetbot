@@ -8,7 +8,7 @@ describe('<NumberOfEvents /> component', () => {
     NumberOfEventsWrapper = shallow(<NumberOfEvents updateEvents={() => {}} />);
   });
 
-  // Feature 3: Specify number of events
+  // Feature 3: Specify number of events.
   // Scenario 1: When user hasn’t specified a number, 32 is the default number.
   test('shallow city search instance should render a number of 32 by default', () => {
     expect(

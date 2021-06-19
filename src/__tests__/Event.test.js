@@ -10,7 +10,7 @@ describe('<Event /> component', () => {
     EventWrapper = shallow(<Event event={event} />);
   });
 
-  // Feature 2: Show / Hide an event's details
+  // Feature 2: Show / Hide an event's details.
   // Scenario 1: An event element is collapsed by default.
   test('shallow event instance should render with prop', () => {
     expect(EventWrapper.instance().props.event).toEqual(event);

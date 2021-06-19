@@ -9,19 +9,21 @@ class Event extends Component {
     };
   }
 
+  // Allow user to show or hide the collapsed event information.
   handleToggleEvent = () => {
     this.setState({
       isCollapsed: this.state.isCollapsed === true ? false : true,
     });
   };
 
+  // Display the collapsed information to the user.
   showCollapsedEvent = () => {
     const { event } = this.props;
 
     if (this.state.isCollapsed === false) {
       return (
         <div className='event-details'>
-          <h3>About event:</h3>
+          <h4>About event:</h4>
           <a
             href={event.htmlLink}
             className='event-link'
@@ -41,7 +43,7 @@ class Event extends Component {
 
     return (
       <div className='Event'>
-        <h3 className='event-summary'>{event.summary}</h3>
+        <h2 className='event-summary'>{event.summary}</h2>
         <p className='event-start-date'>
           {event.start.dateTime}, {event.start.timeZone}
         </p>
