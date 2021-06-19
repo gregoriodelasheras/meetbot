@@ -8,10 +8,11 @@ class CitySearch extends Component {
     this.state = {
       query: '',
       suggestions: [],
-      showSuggestions: undefined,
+      showSuggestions: false,
     };
   }
 
+  // Filter by city to give user search suggestions.
   handleInputChanged = (event) => {
     const value = event.target.value;
     this.setState({ showSuggestions: true });
@@ -34,6 +35,7 @@ class CitySearch extends Component {
     }
   };
 
+  // Select a city suggestion to display filtered data and then update events.
   handleItemClicked = (suggestion) => {
     this.setState({
       query: suggestion,
@@ -46,23 +48,22 @@ class CitySearch extends Component {
   };
 
   render() {
+    const { query, showSuggestions, suggestions, infoText } = this.state;
+
     return (
       <div className='CitySearch'>
-        <h2>Please enter a city:</h2>
+        <h3>Please enter a city:</h3>
         <input
           type='text'
           className='city'
           placeholder='Search events by city here'
-          value={this.state.query}
+          value={query}
           onChange={this.handleInputChanged}
-          onFocus={() => {
-            this.setState({ showSuggestions: true });
-          }}
         />
         <ul
           className='suggestions'
-          style={this.state.showSuggestions ? {} : { display: 'none' }}>
-          {this.state.suggestions.map((suggestion) => (
+          style={showSuggestions ? {} : { display: 'none' }}>
+          {suggestions.map((suggestion) => (
             <li
               key={suggestion}
               onClick={() => this.handleItemClicked(suggestion)}>
@@ -73,7 +74,7 @@ class CitySearch extends Component {
             <b>See all cities</b>
           </li>
         </ul>
-        <InfoAlert text={this.state.infoText} />
+        <InfoAlert text={infoText} />
       </div>
     );
   }
