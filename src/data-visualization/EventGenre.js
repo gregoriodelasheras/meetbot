@@ -5,7 +5,7 @@ import { PieChart, Pie, Cell, Legend, ResponsiveContainer } from 'recharts';
 const EventGenre = ({ events }) => {
   const [data, setData] = useState([]);
 
-  const chartColors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+  const chartColors = ['#FF004D', '#FFA300', '#00E436', '#29ADFF', '#7A09FA'];
 
   /*
     Listen changes in the events prop that are passed to the component,
