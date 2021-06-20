@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { ErrorAlert } from './Alert';
 
+// Material-UI
+import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
+
 class NumberOfEvents extends Component {
   constructor() {
     super();
@@ -32,14 +37,25 @@ class NumberOfEvents extends Component {
 
     return (
       <div className='NumberOfEvents'>
-        <h3>Please select a number of events:</h3>
-        <input
+        <TextField
           type='number'
-          className='input-number-events'
-          min='1'
-          max='32'
+          variant='outlined'
+          color='primary'
+          label='Number of events'
+          className='input-number'
           value={numberOfEvents}
           onChange={this.handleInputChanged}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position='start'>
+                <PlaylistAddIcon />
+              </InputAdornment>
+            ),
+            inputProps: {
+              min: 1,
+              max: 32,
+            },
+          }}
         />
         <ErrorAlert text={errorText} />
       </div>

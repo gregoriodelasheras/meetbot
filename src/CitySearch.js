@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { InfoAlert } from './Alert';
 
+// Material-UI
+import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import LocationCityIcon from '@material-ui/icons/LocationCity';
+
 class CitySearch extends Component {
   constructor() {
     super();
@@ -23,8 +28,8 @@ class CitySearch extends Component {
     if (suggestions.length === 0) {
       this.setState({
         query: value,
-        infoText:
-          'Sorry, we can not find the city you are looking for. Please try another city.',
+        showSuggestions: false,
+        infoText: 'Sorry, we can not find the city you are looking for.',
       });
     } else {
       return this.setState({
@@ -52,13 +57,23 @@ class CitySearch extends Component {
 
     return (
       <div className='CitySearch'>
-        <h3>Please enter a city:</h3>
-        <input
+        <TextField
+          id='city-search'
           type='text'
-          className='city'
-          placeholder='Search events by city here'
+          variant='outlined'
+          color='primary'
+          label='Search events by city here'
+          placeholder='E.g. "Berlin"'
+          className='input-city'
           value={query}
           onChange={this.handleInputChanged}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position='start'>
+                <LocationCityIcon />
+              </InputAdornment>
+            ),
+          }}
         />
         <ul
           className='suggestions'
@@ -71,7 +86,7 @@ class CitySearch extends Component {
             </li>
           ))}
           <li key='all' onClick={() => this.handleItemClicked('all')}>
-            <b>See all cities</b>
+            <strong>See all cities</strong>
           </li>
         </ul>
         <InfoAlert text={infoText} />

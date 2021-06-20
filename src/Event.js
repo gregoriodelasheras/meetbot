@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 
+// Material-UI
+import Card from '@material-ui/core/Card';
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
+import UnfoldMore from '@material-ui/icons/UnfoldMore';
+
 class Event extends Component {
   constructor() {
     super();
@@ -23,16 +30,20 @@ class Event extends Component {
     if (this.state.isCollapsed === false) {
       return (
         <div className='event-details'>
-          <h4>About event:</h4>
-          <a
-            href={event.htmlLink}
-            className='event-link'
-            target='_blank'
-            rel='noreferrer'>
-            See details on Google Calendar
-          </a>
-          <p className='event-description'>{event.description}</p>
-          <p className='event-status'>{event.status}</p>
+          <Box>
+            <h3>About the event:</h3>
+            <p className='event-description'>
+              <em>{event.description}</em>
+            </p>
+            <Link
+              href={event.htmlLink}
+              color='secondary'
+              className='event-link'
+              target='_blank'
+              rel='noreferrer'>
+              See details on Google Calendar
+            </Link>
+          </Box>
         </div>
       );
     }
@@ -40,24 +51,36 @@ class Event extends Component {
 
   render() {
     const { event } = this.props;
+    const startEvent = new Date(event.start.dateTime);
+    const endEvent = new Date(event.end.dateTime);
 
     return (
       <div className='Event'>
-        <h2 className='event-summary'>{event.summary}</h2>
-        <p className='event-start-date'>
-          {event.start.dateTime}, {event.start.timeZone}
-        </p>
-        <p className='event-end-date'>
-          {event.end.dateTime}, {event.end.timeZone}
-        </p>
-        <p className='event-location'>{event.location}</p>
-        <button
-          type='button'
-          className='btn-toggle-event'
-          onClick={this.handleToggleEvent}>
-          Details
-        </button>
-        {this.showCollapsedEvent()}
+        <Card>
+          <Box py={2} px={4}>
+            <h2 className='event-summary'>{event.summary}</h2>
+            <p className='event-start-date'>
+              <strong>Start: </strong>
+              {startEvent.toLocaleString()} (Locale Time)
+            </p>
+            <p className='event-end-date'>
+              <strong>End: </strong> {endEvent.toLocaleString()} (Locale Time)
+            </p>
+            <p className='event-location'>
+              <strong>Location: </strong> {event.location}
+            </p>
+            <Box my={2}>
+              <Button
+                startIcon={<UnfoldMore />}
+                variant='contained'
+                color='secondary'
+                onClick={this.handleToggleEvent}>
+                Details
+              </Button>
+            </Box>
+            {this.showCollapsedEvent()}
+          </Box>
+        </Card>
       </div>
     );
   }
