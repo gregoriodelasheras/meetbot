@@ -1,13 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  background: #a1ffce;
+  background: -webkit-linear-gradient(to right, #faffd1, #a1ffce);
+  background: linear-gradient(to right, #faffd1, #a1ffce);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.logo-web {
+  max-width: 400px;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.Alert {
+  margin: 2rem 1rem;
+}
+
+.input-city,
+.input-number {
+  max-width: 250px;
+  width: 100%;
+}
+
+.NumberOfEvents,
+.CitySearch {
+  margin: 0 1rem;
+}
+
+.suggestions {
+  max-width: 250px;
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: 10px 10px 15px -5px rgba(0, 0, 0, 0.2);
+}
+
+.suggestions > li {
+  text-align: center;
+  padding: 5px;
+  background-color: #f0f0f0;
+  cursor: default;
+}
+
+.suggestions > li:hover {
+  background-color: #faffd1;
+}
+
+.recharts-responsive-container {
+  margin: 1rem 0;
 }
