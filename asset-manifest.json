@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/meetbot/static/css/main.71f1f02e.chunk.css",
-    "main.js": "/meetbot/static/js/main.70b2858b.chunk.js",
-    "main.js.map": "/meetbot/static/js/main.70b2858b.chunk.js.map",
+    "main.css": "/meetbot/static/css/main.27db38bf.chunk.css",
+    "main.js": "/meetbot/static/js/main.4daf848e.chunk.js",
+    "main.js.map": "/meetbot/static/js/main.4daf848e.chunk.js.map",
     "runtime-main.js": "/meetbot/static/js/runtime-main.26b7e6ac.js",
     "runtime-main.js.map": "/meetbot/static/js/runtime-main.26b7e6ac.js.map",
     "static/js/2.d9082dbe.chunk.js": "/meetbot/static/js/2.d9082dbe.chunk.js",
@@ -12,14 +12,14 @@
     "index.html": "/meetbot/index.html",
     "service-worker.js": "/meetbot/service-worker.js",
     "service-worker.js.map": "/meetbot/service-worker.js.map",
-    "static/css/main.71f1f02e.chunk.css.map": "/meetbot/static/css/main.71f1f02e.chunk.css.map",
+    "static/css/main.27db38bf.chunk.css.map": "/meetbot/static/css/main.27db38bf.chunk.css.map",
     "static/js/2.d9082dbe.chunk.js.LICENSE.txt": "/meetbot/static/js/2.d9082dbe.chunk.js.LICENSE.txt",
     "static/media/logo.462aee1a.svg": "/meetbot/static/media/logo.462aee1a.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.26b7e6ac.js",
     "static/js/2.d9082dbe.chunk.js",
-    "static/css/main.71f1f02e.chunk.css",
-    "static/js/main.70b2858b.chunk.js"
+    "static/css/main.27db38bf.chunk.css",
+    "static/js/main.4daf848e.chunk.js"
   ]
 }
