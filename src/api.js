@@ -2,6 +2,8 @@ import axios from 'axios';
 import { mockData } from './mock-data';
 import NProgress from 'nprogress';
 
+// 1 - Authentication and authorization
+
 // Check the token's validity.
 const checkToken = async (accessToken) => {
   const result = await fetch(
@@ -67,28 +69,26 @@ export const getAccessToken = async () => {
   return accessToken;
 };
 
-// Take events from Google Calendar API, remove duplicates and create a new array.
-export const extractLocations = (events) => {
-  let extractLocations = events.map((event) => event.location);
-  let locations = [...new Set(extractLocations)];
-  return locations;
-};
+// 2. API data loading
 
 // Load events depending on the environment or connection status.
 export const getEvents = async () => {
   NProgress.start();
 
-  // If use localhost, return the mock data (for Testing).
+  // If use localhost, return the mock data (for development environment).
   if (window.location.href.startsWith('http://localhost')) {
     NProgress.done();
-    return mockData;
+    return { events: mockData, locations: extractLocations(mockData) };
   }
 
   // If app is offline, load data from localStorage.
   if (!navigator.onLine) {
     const data = localStorage.getItem('lastEvents');
     NProgress.done();
-    return JSON.parse(data).events;
+    return {
+      events: JSON.parse(data).events,
+      locations: extractLocations(JSON.parse(data).events),
+    };
   }
 
   // If the app is online, it requests an access token and loads the API data.
@@ -98,12 +98,21 @@ export const getEvents = async () => {
     removeQuery();
     const url = `https://6w6p3q6fx5.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/${token}`;
     const result = await axios.get(url);
+    //
     if (result.data) {
       var locations = extractLocations(result.data.events);
+      // If there is data in the API, save a copy in localStorage.
       localStorage.setItem('lastEvents', JSON.stringify(result.data));
       localStorage.setItem('locations', JSON.stringify(locations));
     }
     NProgress.done();
-    return result.data.events;
+    return { events: result.data.events, locations };
   }
+};
+
+// Take events from Google Calendar API, remove duplicates and create a new array.
+export const extractLocations = (events) => {
+  let extractLocations = events.map((event) => event.location);
+  let locations = [...new Set(extractLocations)];
+  return locations;
 };
