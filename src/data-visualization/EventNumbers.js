@@ -33,7 +33,7 @@ const EventNumbers = (props) => {
         <XAxis type='category' dataKey='city' name='City' />
         <YAxis type='number' dataKey='number' name='Number of events' />
         <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-        <Scatter data={getData()} fill='#8884d8' />
+        <Scatter data={getData()} fill='#FF004D' />
       </ScatterChart>
     </ResponsiveContainer>
   );
