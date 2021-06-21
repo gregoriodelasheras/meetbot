@@ -14,7 +14,7 @@ const EventGenre = ({ events }) => {
   useEffect(() => {
     const getData = () => {
       // Create an array with the event genres from the API to visualize.
-      const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'AngularJS'];
+      const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'Angular'];
 
       /*
         Get the event array, extract the summary and count how many
@@ -22,7 +22,14 @@ const EventGenre = ({ events }) => {
       */
       const data = genres.map((genre) => {
         const value = events.filter(({ summary }) =>
-          summary.split(' ').includes(genre),
+          summary
+            .replace('.js', '') // For "Node.js" event
+            .replace(',', '') // For "jQuery," event
+            .replace('!!', '') // For "JavaScript!!" event
+            .replace('JS', '') // For "AngularJS" event
+            .replace('-Remote', '') // For "AngularJS-Remote" event
+            .split(' ')
+            .includes(genre),
         ).length;
         return { name: genre, value };
       });
