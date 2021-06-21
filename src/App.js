@@ -20,8 +20,13 @@ class App extends Component {
     super();
 
     this.state = {
+      // Saves the API events.
       events: [],
+      // Extract and save event locations.
       locations: [],
+      // When the app starts, show all cities.
+      currentLocation: 'all',
+      // When the app starts, show the maximum number of events (32).
       numberOfEvents: 32,
     };
   }
@@ -42,11 +47,11 @@ class App extends Component {
     }
 
     // If internet connection is available, loads API data.
-    getEvents().then((events) => {
+    getEvents().then((data) => {
       if (this.mounted) {
         this.setState({
-          events: events.slice(0, this.state.numberOfEvents),
-          locations: extractLocations(events),
+          events: data.events.slice(0, this.state.numberOfEvents),
+          locations: extractLocations(data.events),
         });
       }
     });
@@ -59,21 +64,51 @@ class App extends Component {
   // Allow to update the data to display after loading the app or filtering.
   updateEvents = (location, eventCount) => {
     this.mounted = true;
+    // Loads the city and number of events that were selected before the last update.
+    const { currentLocation, numberOfEvents } = this.state;
 
-    getEvents().then((events) => {
-      const locationEvents =
-        location === 'all' && eventCount === 0
-          ? events
-          : location !== 'all' && eventCount === 0
-          ? events.filter((event) => event.location === location)
-          : events.slice(0, eventCount);
-      if (this.mounted) {
-        this.setState({
-          events: locationEvents,
-          numberOfEvents: eventCount,
-        });
-      }
-    });
+    /*
+      If the location is changed, the events are filtered according to the currently
+      selected city, then saved in an array, and then the array is reduced by
+      dividing by the number of current events.
+    */
+    if (location) {
+      getEvents().then((res) => {
+        const locationEvents =
+          location === 'all'
+            ? res.events
+            : res.events.filter((event) => event.location === location);
+        const events = locationEvents.slice(0, numberOfEvents);
+        if (this.mounted) {
+          this.setState({
+            events: events,
+            locations: res.locations,
+            currentLocation: location,
+          });
+        }
+      });
+    } else {
+      /*
+        If the number of events to be displayed is changed, the events are
+        filtered according to the current city, then stored in an array and
+        then the array is reduced by dividing it by the new number of events
+        indicated by the user.
+      */
+      getEvents().then((res) => {
+        const locationEvents =
+          currentLocation === 'all'
+            ? res.events
+            : res.events.filter((event) => event.location === currentLocation);
+        const events = locationEvents.slice(0, eventCount);
+        if (this.mounted) {
+          this.setState({
+            events: events,
+            locations: res.locations,
+            numberOfEvents: eventCount,
+          });
+        }
+      });
+    }
   };
 
   render() {
@@ -128,7 +163,7 @@ class App extends Component {
             <EventList events={events} />
           </Grid>
 
-          {/* Footer */}
+          {/* Footer. */}
           <Grid item xs={12}>
             <p>
               Made with 💚 by{' '}

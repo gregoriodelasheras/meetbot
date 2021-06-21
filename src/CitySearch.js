@@ -49,7 +49,7 @@ class CitySearch extends Component {
       infoText: '',
     });
 
-    this.props.updateEvents(suggestion, 0);
+    this.props.updateEvents(suggestion);
   };
 
   render() {
@@ -65,6 +65,7 @@ class CitySearch extends Component {
           label='Search events by city here'
           placeholder='E.g. "Berlin"'
           className='input-city'
+          autoComplete='off'
           value={query}
           onChange={this.handleInputChanged}
           InputProps={{
@@ -85,8 +86,11 @@ class CitySearch extends Component {
               {suggestion}
             </li>
           ))}
-          <li key='all' onClick={() => this.handleItemClicked('all')}>
-            <strong>See all cities</strong>
+          <li
+            key='all'
+            className='all-cities'
+            onClick={() => this.handleItemClicked('all')}>
+            <strong>See all cities!</strong>
           </li>
         </ul>
         <InfoAlert text={infoText} />
