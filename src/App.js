@@ -7,13 +7,12 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import EventGenre from './data-visualization/EventGenre';
 import EventNumbers from './data-visualization/EventNumbers';
-import { getEvents, extractLocations } from './api';
+import WelcomeScreen from './WelcomeScreen';
+import { getEvents, extractLocations, checkToken, getAccessToken } from './api';
 import { WarningAlert } from './Alert';
 
 // Material-UI
-import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
-import Link from '@material-ui/core/Link';
+import { Grid, Card, Link } from '@material-ui/core';
 
 class App extends Component {
   constructor() {
@@ -28,11 +27,27 @@ class App extends Component {
       currentLocation: 'all',
       // When the app starts, show the maximum number of events (32).
       numberOfEvents: 32,
+      // Determine when to render the Welcome Screen.
+      showWelcomeScreen: undefined,
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.mounted = true;
+
+    /*
+      - Get token from local storage and check if it is valid or not.
+      - If no token is present or invalid, users can enter a new authorization
+        code when they login.
+      - This code will be used to get a new token after getEvents() is executed.
+      - The app will be relaunched with the code parameter in the URL search
+        field after the site domain and will make a new mount for the App component.
+    */
+    const accessToken = localStorage.getItem('access_token');
+    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get('code');
+    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
 
     // Enable alert for the user when the app has no internet connection.
     if (!navigator.onLine) {
@@ -46,15 +61,17 @@ class App extends Component {
       });
     }
 
-    // If internet connection is available, loads API data.
-    getEvents().then((data) => {
-      if (this.mounted) {
-        this.setState({
-          events: data.events.slice(0, this.state.numberOfEvents),
-          locations: extractLocations(data.events),
-        });
-      }
-    });
+    // If internet connection is available + code or token, load API data.
+    if ((code || isTokenValid) && this.mounted) {
+      getEvents().then((data) => {
+        if (this.mounted) {
+          this.setState({
+            events: data.events.slice(0, this.state.numberOfEvents),
+            locations: extractLocations(data.events),
+          });
+        }
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -112,7 +129,16 @@ class App extends Component {
   };
 
   render() {
-    const { locations, numberOfEvents, events, warningText } = this.state;
+    const {
+      locations,
+      numberOfEvents,
+      events,
+      warningText,
+      showWelcomeScreen,
+    } = this.state;
+
+    // true = show welcome screen || false = hide welcome screen.
+    if (showWelcomeScreen === undefined) return <div className='App' />;
 
     return (
       <div className='App'>
@@ -187,6 +213,12 @@ class App extends Component {
             </p>
           </Grid>
         </Grid>
+        <WelcomeScreen
+          showWelcomeScreen={showWelcomeScreen}
+          getAccessToken={() => {
+            getAccessToken();
+          }}
+        />
       </div>
     );
   }
