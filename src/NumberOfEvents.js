@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { ErrorAlert } from './Alert';
 
 // Material-UI
-import TextField from '@material-ui/core/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
+import { TextField, InputAdornment } from '@material-ui/core';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 
 class NumberOfEvents extends Component {

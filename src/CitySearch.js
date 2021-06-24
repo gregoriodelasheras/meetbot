@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { InfoAlert } from './Alert';
 
 // Material-UI
-import TextField from '@material-ui/core/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
+import { TextField, InputAdornment } from '@material-ui/core';
 import LocationCityIcon from '@material-ui/icons/LocationCity';
 
 class CitySearch extends Component {
