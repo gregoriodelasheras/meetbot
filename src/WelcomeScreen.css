@@ -1,0 +1,56 @@
+.WelcomeScreen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 3;
+  background: #ffffff;
+}
+
+.google-btn {
+  height: 50px;
+  border: 1px solid #808080;
+  background-color: #ffffff;
+  color: #4e4e4e;
+  border-radius: 5px;
+  white-space: nowrap;
+  box-shadow: 1px 1px 0px 2px rgba(0, 0, 0, 0.05);
+  transition-property: background-color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+  padding: 0;
+  cursor: pointer;
+}
+
+.google-btn:focus,
+.google-btn:hover {
+  box-shadow: 2px 4px 5px 2px rgba(0, 0, 0, 0.1);
+}
+
+.google-btn:active {
+  background-color: #f5f5f5;
+  box-shadow: none;
+  transition-duration: 10ms;
+}
+
+.google-btn-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 8px 0 8px 16px;
+  width: 25px;
+  height: 25px;
+}
+
+.google-btn-text {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.MuiBreadcrumbs-ol {
+  justify-content: center;
+}
