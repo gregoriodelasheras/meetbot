@@ -11,7 +11,7 @@ const locations = extractLocations(mockData);
 let AppWrapper;
 let NumberOfEventsWrapper;
 
-// Feature 3: Specify number of events
+// Feature 3: Specify number of events.
 defineFeature(feature, (test) => {
   // Scenario 1: When user hasn’t specified a number, 32 is the default number.
   test('When user hasn’t specified a number, 32 is the default number.', ({
@@ -34,7 +34,7 @@ defineFeature(feature, (test) => {
     then(
       'the user should be able to see a list with a maximum of 32 events.',
       () => {
-        // Expect: mockData array has only 2 objects
+        // Expect: mockData array has only 2 objects.
         expect(AppWrapper.find('.Event')).toHaveLength(2);
       },
     );
@@ -55,7 +55,7 @@ defineFeature(feature, (test) => {
     );
 
     when('user changes the number of event elements', () => {
-      // change to 1 event element
+      // Change to 1 event element.
       const eventNumber = { target: { value: 1 } };
       NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
       NumberOfEventsWrapper.setState({ events: locations, eventCount: 1 });

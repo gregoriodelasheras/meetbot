@@ -11,7 +11,7 @@ const locations = extractLocations(mockData);
 let AppWrapper;
 let CitySearchWrapper;
 
-// Feature 1: Filter events by city
+// Feature 1: Filter events by city.
 defineFeature(feature, (test) => {
   // Scenario 1: When user hasn’t searched for a city, show upcoming events from all cities.
   test('When user hasn’t searched for a city, show upcoming events from all cities.', ({

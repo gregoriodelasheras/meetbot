@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { InfoAlert } from './Alert';
 
+// Material-UI
+import { TextField, InputAdornment } from '@material-ui/core';
+import LocationCityIcon from '@material-ui/icons/LocationCity';
+
 class CitySearch extends Component {
   constructor() {
     super();
@@ -8,10 +12,11 @@ class CitySearch extends Component {
     this.state = {
       query: '',
       suggestions: [],
-      showSuggestions: undefined,
+      showSuggestions: false,
     };
   }
 
+  // Filter by city to give user search suggestions.
   handleInputChanged = (event) => {
     const value = event.target.value;
     this.setState({ showSuggestions: true });
@@ -22,8 +27,8 @@ class CitySearch extends Component {
     if (suggestions.length === 0) {
       this.setState({
         query: value,
-        infoText:
-          'Sorry, we can not find the city you are looking for. Please try another city.',
+        showSuggestions: false,
+        infoText: 'Sorry, we can not find the city you are looking for.',
       });
     } else {
       return this.setState({
@@ -34,6 +39,7 @@ class CitySearch extends Component {
     }
   };
 
+  // Select a city suggestion to display filtered data and then update events.
   handleItemClicked = (suggestion) => {
     this.setState({
       query: suggestion,
@@ -42,38 +48,51 @@ class CitySearch extends Component {
       infoText: '',
     });
 
-    this.props.updateEvents(suggestion, 0);
+    this.props.updateEvents(suggestion);
   };
 
   render() {
+    const { query, showSuggestions, suggestions, infoText } = this.state;
+
     return (
       <div className='CitySearch'>
-        <h2>Please enter a city:</h2>
-        <input
+        <TextField
+          id='city-search'
           type='text'
-          className='city'
-          placeholder='Search events by city here'
-          value={this.state.query}
+          variant='outlined'
+          color='primary'
+          label='Search events by city here'
+          placeholder='E.g. "Berlin"'
+          className='input-city'
+          autoComplete='off'
+          value={query}
           onChange={this.handleInputChanged}
-          onFocus={() => {
-            this.setState({ showSuggestions: true });
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position='start'>
+                <LocationCityIcon />
+              </InputAdornment>
+            ),
           }}
         />
         <ul
           className='suggestions'
-          style={this.state.showSuggestions ? {} : { display: 'none' }}>
-          {this.state.suggestions.map((suggestion) => (
+          style={showSuggestions ? {} : { display: 'none' }}>
+          {suggestions.map((suggestion) => (
             <li
               key={suggestion}
               onClick={() => this.handleItemClicked(suggestion)}>
               {suggestion}
             </li>
           ))}
-          <li key='all' onClick={() => this.handleItemClicked('all')}>
-            <b>See all cities</b>
+          <li
+            key='all'
+            className='all-cities'
+            onClick={() => this.handleItemClicked('all')}>
+            <strong>See all cities!</strong>
           </li>
         </ul>
-        <InfoAlert text={this.state.infoText} />
+        <InfoAlert text={infoText} />
       </div>
     );
   }

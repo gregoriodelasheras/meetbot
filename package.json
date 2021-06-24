@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://gregoriodelasheras.github.io/meetbot",
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -13,6 +15,7 @@
     "react": "^16.4.0-0",
     "react-dom": "^16.4.0-0",
     "react-scripts": "4.0.3",
+    "recharts": "^2.0.9",
     "web-vitals": "^0.2.4",
     "workbox-background-sync": "^5.1.4",
     "workbox-broadcast-update": "^5.1.4",

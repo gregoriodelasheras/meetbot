@@ -13,7 +13,7 @@ describe('<CitySearch /> component', () => {
     );
   });
 
-  // Feature 1: Filter events by city
+  // Feature 1: Filter events by city.
   // Scenario 1: When user hasn't searched for a city, show upcoming events from all cities.
   test('render text input', () => {
     expect(CitySearchWrapper.find('.city')).toHaveLength(1);

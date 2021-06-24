@@ -10,7 +10,7 @@ let event = mockData[0];
 let AppWrapper;
 let EventWrapper;
 
-// Feature 2: Show / Hide an event’s details
+// Feature 2: Show / Hide an event’s details.
 defineFeature(feature, (test) => {
   // Scenario 1: An event element is collapsed by default.
 

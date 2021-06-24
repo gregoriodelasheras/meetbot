@@ -4,13 +4,9 @@ class Alert extends Component {
   constructor(props) {
     super(props);
     this.color = null;
+    this.fontWeight = '700';
+    this.fontSize = '1rem';
   }
-
-  getStyle = () => {
-    return {
-      color: this.color,
-    };
-  };
 
   render() {
     return (
@@ -27,12 +23,11 @@ class InfoAlert extends Alert {
     this.color = 'blue';
   }
 
-  // Bonus: Overriding the getStyle method
   getStyle = () => {
     return {
       color: this.color,
-      fontWeight: '400',
-      fontSize: '1.2rem',
+      fontWeight: this.fontWeight,
+      fontSize: this.fontSize,
     };
   };
 }
@@ -43,12 +38,11 @@ class WarningAlert extends Alert {
     this.color = 'orange';
   }
 
-  // Bonus: Overriding the getStyle method
   getStyle = () => {
     return {
       color: this.color,
-      fontWeight: '900',
-      fontSize: '1rem',
+      fontWeight: this.fontWeight,
+      fontSize: this.fontSize,
     };
   };
 }
@@ -59,12 +53,11 @@ class ErrorAlert extends Alert {
     this.color = 'red';
   }
 
-  // Bonus: Overriding the getStyle method
   getStyle = () => {
     return {
       color: this.color,
-      fontWeight: '700',
-      fontSize: '1.4rem',
+      fontWeight: this.fontWeight,
+      fontSize: this.fontSize,
     };
   };
 }
