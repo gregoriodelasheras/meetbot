@@ -3,9 +3,6 @@
 body {
   font-family: 'Roboto', sans-serif;
   text-align: center;
-  background: #a1ffce;
-  background: -webkit-linear-gradient(to right, #faffd1, #a1ffce);
-  background: linear-gradient(to right, #faffd1, #a1ffce);
 }
 
 ul {
