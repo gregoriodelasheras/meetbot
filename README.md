@@ -43,7 +43,7 @@
 - As a user, I would like to be able to add the app shortcut to my home screen so that I can open the app faster.
 - As a user, I would like to be able to see a chart showing the upcoming events in each city so that I know what events are organized in which city.
 
-### Scenarios "Given-When-Then":
+### Scenarios "Given-When-Then" (using Gherkin):
 
 - Feature 1: Filter events by city
 
@@ -162,16 +162,25 @@ The development of this application was organized through a Kanban board. You ca
 - [JavaScript](https://www.javascript.com/)
 - [Node.js](https://nodejs.org/)
 - [React](https://reactjs.org/)
+- [Material-UI](https://material-ui.com/)
+- [Recharts](https://recharts.org/)
 - [Jest](https://jestjs.io/)
-- [Jest Cucumber](https://github.com/bencompton/jest-cucumber)
 - [Puppeteer](https://github.com/puppeteer/puppeteer)
+- [Amazon Web Services (AWS)](https://aws.amazon.com/)
+- [Google Cloud Platform (GCP)](https://console.cloud.google.com/)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Dependencies
 
-- react
+- atatus-spa
 - axios
 - nprogress
+- material-ui
+- nprogress
+- react
+- recharts
+- web-vitals
+- workbox
 
 ## Dev Dependencies
 
